@@ -1,4 +1,6 @@
 import Navbar from "../components/Navbar.tsx";
+import Footer from "../components/Footer.tsx";
+import Contact from "../components/Contact.tsx";
 
 function AboutMe() {
     return (
@@ -17,27 +19,18 @@ function AboutMe() {
                     <img src={"../src/assets/ProfilePicture.jpg"}  className={"rounded-lg"} alt="Profile" />
                 </span>
             </div>
-            <div className={"py-6"}></div>
-            <div className={"pl-40 flex-row-reverse pb-10"}>
-                <div className={"flex text-5xl font-bold pb-10"}>Interests</div>
-                <div className={"w-2/3"}>
+            <div className={"flex flex-col items-end justify-end pr-64 py-24 "}>
+                <div className={"text-5xl font-bold pb-10"}>Interests</div>
+                <div className={"w-1/3 text-right"}>
                     I'm interested in Computer Graphics, Operating Systems, Machine Learning, and Game Development.
                     I'm always open to learning new technologies, and as of December 2023, I'm trying to move more into standalone
                     application development. I'm looking to learn more about OpenGL, OS Dev, and Unity.
                     I am eager to apply these skills in future projects and contribute to the advancement of the technology landscape.
                 </div>
             </div>
-            <div className={"pl-40 flex-col"}>
-                <div className={"text-5xl font-bold pb-10"}>Contact Me!</div>
-                <div className={"py-10"}>
-                    <input className={"w-96 text-gray-900 text-md rounded-lg p-3 transition-all delay-75 duration-300 ease-in-out ring-2 ring-gray-200 hover:outline-none hover:ring-2 hover:ring-black"} placeholder={"Email"}/>
-                </div>
-                <div className={""}>
-                    <input className={"w-96 h-44 text-gray-900 text-md rounded-lg p-3 transition-all delay-75 duration-300 ease-in-out ring-2 ring-gray-200 hover:outline-none hover:ring-2 hover:ring-black"} placeholder={"Your Message Here"}/>
-                </div>
-                <button className={"rounded-lg px-6 py-4 font-inter text-lg my-10 ring-2 ring-gray-200 hover:outline-none hover:ring-2 hover:ring-black"}>Contact Me</button>
-            </div>
 
+            <Contact />
+            <Footer />
 
         </>
     )

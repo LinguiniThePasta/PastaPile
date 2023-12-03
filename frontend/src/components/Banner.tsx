@@ -3,7 +3,7 @@ function Banner( {Articles: article} ) {
     return (
         <>
             <div className="bg-gray-100 relative flex justify-between items-stretch overflow-hidden min-h-[500px] max-h-[700px]">
-                <span className="absolute flex flex-col justify-center bg-gray-100 break-words w-2/5 hover:w-3/5 transition-all delay-150 duration-200 ease-in-out p-4 z-10 h-full">
+                <span className="absolute flex flex-col pl-32 justify-center bg-gray-100 break-words w-2/4 hover:w-3/4 transition-all delay-150 duration-200 ease-in-out p-4 z-10 h-full">
                     <span className={"text-5xl"}>{article.Title}</span>
                     <span className={"text-lg py-5 text-gray-500"}>{article.Text}</span>
                     <span className={"flex pb-10"}>

@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar.tsx";
 import Banner from "../components/Banner.tsx";
 import Card from "../components/Card.tsx";
+import Footer from "../components/Footer.tsx";
 interface Articles {
     URL: string,
     Title: string;
@@ -30,6 +31,7 @@ function Homepage() {
             <Card Articles={art} />
             <div className={"py-6"}></div>
             <Card Articles={art} />
+            <Footer />
         </>
     )
 }
