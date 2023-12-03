@@ -15,7 +15,7 @@ function AboutMe() {
                         as well as just misc projects that I do in other fields.
                     </div>
                 </span>
-                <span className={"mr-64"}>
+                <span className={"mr-64 transition-all delay-75 duration-300 hover:scale-90"}>
                     <img src={"../src/assets/ProfilePicture.jpg"}  className={"rounded-lg"} alt="Profile" />
                 </span>
             </div>
