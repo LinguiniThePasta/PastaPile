@@ -1,23 +1,19 @@
-import './App.css'
-import Navbar from "./components/Navbar.tsx";
-import Banner from "./components/Banner.tsx";
-interface Articles {
-    Title: string;
-    Picture: string;
-}
-function App() {
-    let art: Articles = {
-        Title: "asdfasasdffffffffffffasdsfasdfsdasdfasdfadfadsfdshsfdghertyhfgbdfadsf",
-        Picture: "https://images.thedirect.com/media/article_full/gumball.jpg",
-    };
-  return (
-    <>
-        <Navbar></Navbar>
-        <div className={"w-full"}>
-            <Banner Articles={art}></Banner>
-        </div>
-    </>
-  )
-}
+// App.js
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Homepage.tsx';
+import About from './pages/About Me.tsx';
+import Projects from './pages/Projects.tsx';
 
-export default App
+const App = () => {
+    return (
+        <>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/articles" element={<Projects />} />
+                <Route path="/about" element={<About />} />
+            </Routes>
+        </>
+    );
+};
+
+export default App;
