@@ -5,11 +5,8 @@ function Contact() {
     const [message, setMessage] = React.useState("");
     function handleSubmit(event: React.SyntheticEvent<HTMLFormElement>) {
         event.preventDefault();
-        const data = {
-            email: email,
-            message: message
-        }
         //Send the email to me
+
         console.log("sent to: " + email + ", message: " + message);
     }
     return (
