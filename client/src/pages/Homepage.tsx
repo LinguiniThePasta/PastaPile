@@ -9,22 +9,32 @@ function Homepage() {
     const [projects, setProjects] = useState([]);
     useEffect(() => {
         async function fetchProjects() {
-            const response = await fetch(`http://localhost:5000/projects`, {
-                method: "GET",
-                headers: {},
-            });
-            if (!response.ok) {
-                const message = `An error occurred: ${response.statusText}`;
-                window.alert(message);
-                return;
+            try {
+                console.log("pppb");
+                const response = await fetch("http://localhost:5000/blogdb/", {
+                    method: "GET",
+                    headers: {},
+                });
+
+                if (!response.ok) {
+                    const text = await response.text();
+                    console.error('Bad response:', text);
+                    return;
+                }
+                //below is testing code to see what the text of the response is.
+                const text = await response.text();
+                console.log('Bad response:', text);
+                const records = await response.json();
+                console.log("ccc: " + records);
+                setProjects(records);
+            } catch (error) {
+                console.error('Failed to fetch projects:', error);
             }
-            const records = await response.json();
-            console.log(records);
-            console.log("hjoasdf");
-            setProjects(records);
         }
         fetchProjects();
     }, [projects.length]);
+
+
 
     return (
         <>
