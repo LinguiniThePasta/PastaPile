@@ -17,17 +17,16 @@ function Homepage() {
                     headers: {},
                 }).then(resp => resp.json());
 
-                if (!response.ok) {
-                    const text = await response.text();
-                    console.error('Bad response:', text);
-                    return;
-                }
-                //below is testing code to see what the text of the response is.
-                const text = await response.text();
-                console.log('Bad response:', text);
-                // const records = await response.json();
-                console.log("ccc: ");
-                // setProjects(records);
+
+                // if (!response.ok) {
+                //     const text = await response.text();
+                //     console.error('Bad response:', text);
+                //     return;
+                // }
+                //console.log("ccc: ", response);
+                // //below is testing code to see what the text of the response is.
+                const records = await response;
+                setProjects(records);
             } catch (error) {
                 console.error('Failed to fetch projects:', error);
             }
