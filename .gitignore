@@ -24,5 +24,4 @@ dist-ssr
 *.sw?
 # Server Side
 /server/.env
-/client/src/utils/connectionString.ts
 /server/.env
