@@ -11,10 +11,11 @@ function Homepage() {
         async function fetchProjects() {
             try {
                 console.log("pppb");
-                const response = await fetch("http://localhost:5000/blogdb/", {
+                //use ${baseUrl}/blogdb/ when you're ready to host this online or something
+                const response = await fetch("http://localhost:5050/blogdb/", {
                     method: "GET",
                     headers: {},
-                });
+                }).then(resp => resp.json());
 
                 if (!response.ok) {
                     const text = await response.text();
@@ -24,9 +25,9 @@ function Homepage() {
                 //below is testing code to see what the text of the response is.
                 const text = await response.text();
                 console.log('Bad response:', text);
-                const records = await response.json();
-                console.log("ccc: " + records);
-                setProjects(records);
+                // const records = await response.json();
+                console.log("ccc: ");
+                // setProjects(records);
             } catch (error) {
                 console.error('Failed to fetch projects:', error);
             }

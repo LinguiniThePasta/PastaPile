@@ -1,32 +1,15 @@
-// require('dotenv').config({ path: '../config.env' });
-// const uri = process.env.ATLAS_URI;
-const express = require("express");
+import express from "express";
+import db from "../db/conn.mjs";
 
-// blogRoutes is an instance of the express router.
-// We use it to define our routes.
-// The router will be added as a middleware and will take control of requests starting with path /record.
 const blogRoutes = express.Router();
 
-// This will help us connect to the database
-const dbo = require("../db/conn");
-
-// This help convert the id from string to ObjectId for the _id.
-const ObjectId = require("mongodb").ObjectId;
-
-
-
-// This section will help you get a list of all the records.
-blogRoutes.get("/", function (req, res) {
-    let db_connect = dbo.connect("blog");
-    db_connect
-        .collection("blogposts")
-        .find({})
-        .toArray(function (err, result) {
-            if (err) throw err;
-            res.json(result);
-        });
+blogRoutes.get("/", async (req, res) => {
+    let collection = await db.collection("blog");
+    let results = await collection.find({})
+        .limit(50)
+        .toArray();
+    res.send(results).status(200);
 });
 
 
-
-module.exports = blogRoutes;
+export default blogRoutes;

@@ -1,14 +1,22 @@
-import "./loadEnvironment.mjs";
+import express from "express";
+import cors from "cors";
+import "./loadEnv.mjs";
+import "express-async-errors";
+import blogRoutes from "./routes/blogdb.mjs";
 
-// const express = require("express");
-// const app = express();
-// const cors = require("cors");
-// require("dotenv").config({ path: "./config.env" });
-// const port = process.env.PORT || 5173;
-// app.use(express.json());
-// app.use(cors());
+const PORT = process.env.PORT || 5000;
+const app = express();
 
-// Import the routes
-const blogRoutes = require('./routes/blogdb.mjs');
-
+app.use(cors());
+app.use(express.json());
 app.use("/blogs", blogRoutes);
+
+// Global error handling
+app.use((err, _req, res, next) => {
+    res.status(500).send("Uh oh! An unexpected error occured.")
+})
+
+// start the Express server
+app.listen(PORT, () => {
+    console.log(`Server is running on port: ${PORT}`);
+});

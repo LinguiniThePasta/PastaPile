@@ -12,7 +12,7 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      "/blogdb": "http://localhost:5000/",
+      "/blogdb": "http://localhost:5050/",
     },
   },
 })
