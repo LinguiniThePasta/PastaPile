@@ -5,11 +5,11 @@ import TruncateText from "../utils/TextUtils.ts";
 function Card({Articles: article} ) {
     return (
         <>
-            <a href={article.url} className="flex rounded-lg mx-auto bg-gray-100 h-44 w-10/12 transform items-center justify-between outline-none ring-2 ring-gray-200 transition-all duration-200 ease-in-out hover:outline-none hover:ring-2 hover:ring-black hover:scale-105 hover:shadow-lg">
+            <a href={article.url} className="flex rounded-lg mx-auto bg-gray-100 h-32 md:h-44 w-10/12 transform items-center justify-between outline-none ring-2 ring-gray-200 transition-all delay-75 duration-300 ease-in-out hover:outline-none hover:ring-2 hover:ring-black hover:scale-105 hover:shadow-lg">
                 <span className={"flex flex-col px-5"}>
-                    <span className={"flex text-xl break-words pt-10 pb-5"}>{article.title}</span>
+                    <span className={"flex text-base md:text-xl break-words pt-10 pb-5"}>{article.title}</span>
                     <span className={"flex pb-5 text-gray-500"}>
-                        <span className={"text-sm"}>{TruncateText(article.body, 250)}...</span>
+                        <span className={"overflow-hidden transition-all delay-75 duration-300 text-sm md:text-auto h-0 md:h-auto opacity-0 md:opacity-100"}>{TruncateText(article.body, 250)}</span>
                     </span>
                     <span className={"flex pb-10"}>
                         <span className={"text-sm text-gray-500"}>{article.date}</span>

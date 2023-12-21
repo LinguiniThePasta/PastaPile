@@ -17,7 +17,7 @@ function Contact() {
         <>
             <div className={"pl-40 flex-col bg-gray-100"}>
                 <form onSubmit={handleSubmit}>
-                    <div className={"text-5xl font-bold py-10"}>Contact <button type={"button"} onClick={toggleLogin()}>Me!</button></div>
+                    <div className={"text-5xl font-bold py-10"}>Contact <button type={"button"}>Me!</button></div>
 
                     <div className={"py-10"}>
                         <input onChange={event => setEmail(event.target.value)} className={"w-96 text-gray-900 text-md rounded-lg p-3 transition-all delay-75 duration-300 ease-in-out ring-2 ring-gray-200 hover:outline-none hover:ring-2 hover:ring-black"} type={"email"} placeholder={"Email"}/>
