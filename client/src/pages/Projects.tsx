@@ -1,9 +1,6 @@
 import Navbar from "../components/Navbar.tsx";
 import Card from "../components/Card.tsx";
 import Footer from "../components/Footer.tsx";
-// @ts-ignore
-import Articles from "Homepage.tsx";
-import {sampleArticles} from "../utils/sampleArticles.ts";
 import {useEffect, useState} from "react";
 import {baseURL} from "../utils/config.ts";
 function Projects() {

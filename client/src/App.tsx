@@ -5,6 +5,7 @@ import Projects from './pages/Projects.tsx';
 import ControlPanel from "./pages/Control Panel.tsx";
 import AboutMe from "./pages/About Me.tsx";
 import Login from "./components/Login.tsx";
+import SearchRes from "./pages/SearchRes.tsx";
 
 const App = () => {
     return (
@@ -15,6 +16,7 @@ const App = () => {
                 <Route path="/about" element={<AboutMe/>} />
                 <Route path="/control" element={<ControlPanel />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/search" element={<SearchRes />} />
             </Routes>
         </>
     );

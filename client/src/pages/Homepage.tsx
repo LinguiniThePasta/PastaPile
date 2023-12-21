@@ -43,16 +43,14 @@ function Homepage() {
         <>
             <Navbar />
             <div className={"w-full"}>
-                <Banner Articles={
-                    sampleArticles[0]
-                    //projects[0]
-                    //projects[featureRandom(projects.length-1)]
-                } />
+                {projects.length > 0 &&
+                    <Banner Articles={projects[featureRandom(projects.length)]} />
+                }
             </div>
             <div className={"py-6"}></div>
             <span className={"flex justify-center text-2xl font-bold"}>Articles You Might Be Interested In:</span>
 
-            {sampleArticles.map((project) => {
+            {projects.map((project) => {
                 return (
                     <>
                         <div className={"py-6"}></div>
