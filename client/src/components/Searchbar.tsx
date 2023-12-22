@@ -1,33 +1,28 @@
 import React from "react";
 import {baseURL} from "../utils/config.ts";
-import {Link, useNavigate} from "react-router-dom"; // import useNavigate
+import {Link} from "react-router-dom";
 import SearchRes from "../pages/SearchRes.tsx";
 
 function Searchbar() {
     const [searchText, setSearchText] = React.useState("");
-    const [projects, setProjects] = React.useState("");
-    const navigate = useNavigate(); // use useNavigate instead of useHistory
-
+    const [projects, setProjects] = React.useState([]);
     async function searchHandler(event: React.SyntheticEvent<HTMLFormElement>) {
         event.preventDefault();
         try {
             console.log("pppb");
+            //use ${baseUrl}/blogdb/ when you're ready to host this online or something
+            console.log(JSON.stringify(searchText));
             const response = await fetch(`${baseURL}/blogdb/search`, {
                 method: "POST",
                 headers: {"content-type": "application/json"},
                 body: JSON.stringify(searchText)
             }).then(resp => resp.json());
-
             const records = await response;
             setProjects(records);
-
-            // navigate to the SearchRes page with projects as a state parameter
-            navigate('/SearchRes', { state: { projects: records } }); // use navigate function
         } catch (error) {
             console.error('Failed to fetch projects:', error);
         }
     }
-
     return (
         <>
             <form onSubmit={searchHandler}>
@@ -40,6 +35,7 @@ function Searchbar() {
                     <input onChange={event => {setSearchText(event.target.value)}} className={" w-0 text-gray-900 text-md rounded-lg p-3 transition-all delay-75 duration-300 ease-in-out hover:outline-none hover:ring-2 hover:ring-black invisible md:visible md:w-48 lg:w-96"} placeholder={"Search..."}/>
                 </span>
             </form>
+
         </>
     )
 }

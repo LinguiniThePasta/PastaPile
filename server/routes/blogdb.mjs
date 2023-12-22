@@ -15,11 +15,15 @@ blogRoutes.post("/search", async(req, res) => {
     let results = await collection.aggregate([
         {
             $search: {
-                "text": {
-                    "query": req.body.query, // assuming you're sending the search query in the request body
-                    "fuzzy": {
-                        "maxEdits": 4,
-                        "prefixLength": 0
+                index: "searchBlogposts",
+                text: {
+                    query: "Ipsum",
+                    path: {
+                        wildcard: "*"
+                    },
+                    fuzzy: {
+                        maxEdits: 2,
+                        prefixLength: 0
                     }
                 }
             }
