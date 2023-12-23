@@ -18,15 +18,6 @@ function Homepage() {
                     method: "GET",
                     headers: {},
                 }).then(resp => resp.json());
-
-
-                // if (!response.ok) {
-                //     const text = await response.text();
-                //     console.error('Bad response:', text);
-                //     return;
-                // }
-                //console.log("ccc: ", response);
-                // //below is testing code to see what the text of the response is.
                 const records = await response;
                 setProjects(records);
             } catch (error) {

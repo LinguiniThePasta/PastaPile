@@ -15,10 +15,12 @@ function Searchbar() {
             const response = await fetch(`${baseURL}/blogdb/search`, {
                 method: "POST",
                 headers: {"content-type": "application/json"},
-                body: JSON.stringify(searchText)
-            }).then(resp => resp.json());
-            const records = await response;
-            setProjects(records);
+                body: JSON.stringify( {searchText} )
+            });
+            console.log(response);
+
+            //const records = await response.json();
+            //setProjects(records);
         } catch (error) {
             console.error('Failed to fetch projects:', error);
         }
